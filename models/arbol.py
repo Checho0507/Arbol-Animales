@@ -1,19 +1,9 @@
-from .nodo import *
+from models.nodo import Nodo
+
 class Arbol:
-    nodos = []
-    respuestas = {}
-    preguntas = {}
-
     def __init__(self):
-        pass
-    def agregarPreguntas(self,animal, pregunta, respuesta):
-        self.respuestas[pregunta] = respuesta
-        self.preguntas[animal] = pregunta
+        self._raiz = Nodo(pregunta="Es un pájaro?", animal=None)
+        self._raiz.set_si(Nodo(animal="pájaro"))
 
-    def getNodos(self):
-        return self.nodos
-
-    def addNodo(self, nodo):
-        self.nodos.append(nodo)
-
-
+    def get_raiz(self):
+        return self._raiz
