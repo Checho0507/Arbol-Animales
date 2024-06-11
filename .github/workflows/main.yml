@@ -1,0 +1,26 @@
+name: Run Main Script
+
+on:
+  push:
+    branches:
+      - main  # Cambia 'main' por la rama principal de tu repositorio si es diferente
+
+jobs:
+  run_main:
+    name: Run Main Script
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'  # Cambia '3.x' si necesitas una versión específica de Python
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt  # Asegúrate de tener un archivo requirements.txt si necesitas instalar dependencias
+
+    - name: Run Main Script
+      run: python main.py
